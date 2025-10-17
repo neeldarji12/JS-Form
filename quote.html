@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotes App</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .quote-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+    }
+
+    .quote {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .author {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quote-box">
+    <p class="quote">Click the button to see a quote!</p>
+    <p class="author"></p>
+    <button id="new-quote">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      { text: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+      { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
+      { text: "It's not whether you get knocked down, it's whether you get up.", author: "Vince Lombardi" },
+      { text: "If you are working on something exciting, it will keep you motivated.", author: "Unknown" },
+      { text: "Success is not in what you have, but who you are.", author: "Bo Bennett" },
+      { text: "Your limitation—it's only your imagination.", author: "Unknown" },
+      { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" }
+    ];
+
+    const quoteText = document.querySelector(".quote");
+    const quoteAuthor = document.querySelector(".author");
+    const newQuoteBtn = document.getElementById("new-quote");
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quote = quotes[randomIndex];
+      quoteText.textContent = `"${quote.text}"`;
+      quoteAuthor.textContent = `- ${quote.author}`;
+    }
+
+    newQuoteBtn.addEventListener("click", generateQuote);
+  </script>
+
+</body>
+</html>
